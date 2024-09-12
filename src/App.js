@@ -8,6 +8,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import MobileMenu from "./components/menu/MobileMenu";
+import Select from "./components/Select";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -34,6 +35,19 @@ function App() {
     return 0;
   });
 
+  const colorOptions = [
+    { value: "", label: "All" },
+    { value: "red", label: "Red" },
+    { value: "blue", label: "Blue" },
+    { value: "green", label: "Green" },
+  ];
+
+  const sortOptions = [
+    { value: "", label: "None" },
+    { value: "price", label: "Price" },
+    { value: "name", label: "Name" },
+  ];
+
   return (
     <div className="app-container">
       <div className="sticky-header">
@@ -46,20 +60,11 @@ function App() {
         <div>
           <label>
             Filter by color:
-            <select onChange={handleFilterChange}>
-              <option value="">All</option>
-              <option value="red">Red</option>
-              <option value="blue">Blue</option>
-              <option value="green">Green</option>
-            </select>
+            <Select options={colorOptions} onChange={handleFilterChange} />
           </label>
           <label>
             Sort by:
-            <select onChange={handleSortChange}>
-              <option value="">None</option>
-              <option value="price">Price</option>
-              <option value="name">Name</option>
-            </select>
+            <Select options={sortOptions} onChange={handleSortChange} />
           </label>
         </div>
         <div className="product-grid">
