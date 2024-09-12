@@ -10,7 +10,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import MobileMenu from "./components/menu/MobileMenu";
-import Select from "./components/Select";
+import Select from "./components/select/Select";
 import ProductCard from "./components/product/ProductCard";
 
 function App() {
