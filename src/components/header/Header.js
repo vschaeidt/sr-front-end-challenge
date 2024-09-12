@@ -1,4 +1,3 @@
-import React from 'react';
 import './Header.css';
 import Img from '../../atoms/Image';
 
@@ -7,7 +6,7 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <Img
-                    alt="company_xxx logo"
+                    alt="company logo"
                     src="images/logo/logo.jpeg"
                     desktopSrc="images/logo/logo_desktop.jpeg"
                     tabletSrc="images/logo/logo_tablet.jpeg"
@@ -18,8 +17,12 @@ const Header = () => {
                 <button className="search-button">Search</button>
             </div>
             <div className="icons">
-                <span className="icon">🛒</span>
-                <span className="icon">👤</span>
+                <span className="icon">
+                    <Img src="images/icon/cart.svg" alt="Shopping cart" />
+                </span>
+                <span className="icon">
+                    <Img src="images/icon/user.svg" alt="Logged-in user" />
+                </span>
             </div>
         </header>
     );
