@@ -3,12 +3,12 @@ import { products } from "./data";
 import { links } from "./links";
 import "./App.css";
 
-import Img from "./atoms/Image";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import MobileMenu from "./components/menu/MobileMenu";
 import Select from "./components/Select";
+import ProductCard from "./components/product/ProductCard";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -69,12 +69,7 @@ function App() {
         </div>
         <div className="product-grid">
           {sortedProducts.map((product) => (
-            <div key={product.id} className="product-card">
-              <Img src={product.image} alt={product.name} />
-              <h2>{product.name}</h2>
-              <p>${product.price.toFixed(2)}</p>
-              <p>Colors: {product.colors.join(", ")}</p>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
         <Footer />
