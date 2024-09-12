@@ -15,18 +15,17 @@ import ProductCard from "./components/product/ProductCard";
 
 function App() {
   const sortedProducts = useSelector((state) => state.products.filteredProducts);
+  const availableProductColors = useSelector((state) => state.products.colors);
   const dispatch = useDispatch();
   //load the products once
   useEffect(() => {
     dispatch(setProducts(products));
-  }, [])
+  }, []);
 
   const colorOptions = [
     { value: "", label: "All" },
-    { value: "red", label: "Red" },
-    { value: "blue", label: "Blue" },
-    { value: "green", label: "Green" },
   ];
+  availableProductColors.map(color => colorOptions.push({ value: color, label: color.charAt(0).toUpperCase() + color.slice(1) }));
 
   const sortOptions = [
     { value: "", label: "None" },

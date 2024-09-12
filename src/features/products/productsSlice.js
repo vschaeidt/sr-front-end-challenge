@@ -18,6 +18,7 @@ export const productsSlice = createSlice({
         filteredProducts: [],
         filter: "",
         sort: "",
+        colors: [],
     },
     reducers: {
         filterByColor: (state, action) => {
@@ -31,6 +32,13 @@ export const productsSlice = createSlice({
         setProducts: (state, action) => {
             state.products = action.payload;
             state.filteredProducts = filterProducts(state.products, state.filter).sort((a, b) => sortProducts(a, b, state.sort));
+            const colors = [];
+            action.payload.flatMap(product => product.colors).forEach(color => {
+                if (!colors.includes(color)) {
+                    colors.push(color);
+                }
+            });
+            state.colors = colors;
         },
     },
 });
