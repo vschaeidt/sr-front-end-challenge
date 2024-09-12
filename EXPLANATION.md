@@ -3,6 +3,7 @@
 - I am trying to get the basic functionality done, to then refactor & improve
 - now that Header, Menu and Footer are functional and the basic styling is working, I start refactoring App.js, by extracting the smaller components (Select and ProductGrid/Products)
 - to extract the filter and sort logic from the App, I create a Redux productsSlice to manage the state and its permutations
+- to show why redux is convenient, I'll also add a cartSlice, and implement a basic cart functionality
 
 ## Challenges
 - the pictures are not loading because of CORS, I chose to copy them locally, for the purpose of this demonstration
