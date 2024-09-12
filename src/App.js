@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { products } from "./data";
 import { links } from "./links";
 import "./App.css";
+
+import { useSelector, useDispatch } from 'react-redux'
+import { filterByColor, sortBy, setProducts } from './features/products/productsSlice'
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -11,29 +14,12 @@ import Select from "./components/Select";
 import ProductCard from "./components/product/ProductCard";
 
 function App() {
-  const [filter, setFilter] = useState("");
-  const [sort, setSort] = useState("");
-
-  const handleFilterChange = (e) => {
-    setFilter(e.target.value);
-  };
-
-  const handleSortChange = (e) => {
-    setSort(e.target.value);
-  };
-
-  const filteredProducts = products.filter(
-    (product) => !filter || product.colors.includes(filter)
-  );
-
-  const sortedProducts = filteredProducts.sort((a, b) => {
-    if (sort === "price") {
-      return a.price - b.price;
-    } else if (sort === "name") {
-      return a.name.localeCompare(b.name);
-    }
-    return 0;
-  });
+  const sortedProducts = useSelector((state) => state.products.filteredProducts);
+  const dispatch = useDispatch();
+  //load the products once
+  useEffect(() => {
+    dispatch(setProducts(products));
+  }, [])
 
   const colorOptions = [
     { value: "", label: "All" },
@@ -60,11 +46,11 @@ function App() {
         <div>
           <label>
             Filter by color:
-            <Select options={colorOptions} onChange={handleFilterChange} />
+            <Select options={colorOptions} onChange={event => dispatch(filterByColor(event.target.value))} />
           </label>
           <label>
             Sort by:
-            <Select options={sortOptions} onChange={handleSortChange} />
+            <Select options={sortOptions} onChange={event => dispatch(sortBy(event.target.value))} />
           </label>
         </div>
         <div className="product-grid">
