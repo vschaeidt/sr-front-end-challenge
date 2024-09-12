@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { products } from "./data";
+import { links } from "./links";
 import Img from "./atoms/Image";
 import Header from "./components/header/Header";
+import Menu from "./components/menu/Menu";
+import MobileMenu from "./components/menu/MobileMenu";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -30,7 +33,9 @@ function App() {
 
   return (
     <div>
-      <Header></Header>
+      <Header />
+      <MobileMenu links={links} />
+      <Menu links={links} />
       <h1>Product Listing Page</h1>
       <div>
         <label>
