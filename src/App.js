@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { products } from "./data";
 import Img from "./atoms/Image";
+import Header from "./components/header/Header";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div>
+      <Header></Header>
       <h1>Product Listing Page</h1>
       <div>
         <label>
