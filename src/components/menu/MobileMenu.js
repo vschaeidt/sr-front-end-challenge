@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { links } from '../../links';
 import './MobileMenu.css';
 
@@ -46,6 +47,21 @@ const MobileMenu = () => {
             )}
         </div>
     );
+};
+
+MobileMenu.propTypes = {
+    links: PropTypes.arrayOf(
+        PropTypes.shape({
+            url: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired,
+            subItems: PropTypes.arrayOf(
+                PropTypes.shape({
+                    url: PropTypes.string.isRequired,
+                    text: PropTypes.string.isRequired
+                })
+            )
+        })
+    )
 };
 
 export default MobileMenu;
