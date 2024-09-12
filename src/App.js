@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { products } from "./data";
+import Img from "./atoms/Image";
 
 function App() {
   const [filter, setFilter] = useState("");
@@ -51,7 +52,7 @@ function App() {
       <div className="product-grid">
         {sortedProducts.map((product) => (
           <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} />
+            <Img src={product.image} alt={product.name} />
             <h2>{product.name}</h2>
             <p>${product.price.toFixed(2)}</p>
             <p>Colors: {product.colors.join(", ")}</p>
