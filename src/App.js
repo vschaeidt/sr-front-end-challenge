@@ -5,6 +5,7 @@ import "./App.css";
 
 import Img from "./atoms/Image";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import MobileMenu from "./components/menu/MobileMenu";
 
@@ -71,6 +72,7 @@ function App() {
             </div>
           ))}
         </div>
+        <Footer />
       </div>
     </div>
   );
