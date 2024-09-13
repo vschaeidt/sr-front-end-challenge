@@ -6,10 +6,14 @@ import "./ProductCard.css";
 function ProductCard({ product }) {
     return (
         <div className="product-card">
-            <Img src={product.image} alt={product.name} />
-            <h2>{product.name}</h2>
-            <p>${product.price.toFixed(2)}</p>
-            <p>Colors: {product.colors.join(", ")}</p>
+            <div className="product-card-image">
+                <Img src={product.image} alt={product.name} />
+            </div>
+            <div className="product-card-content">
+                <h2>{product.name}</h2>
+                <p>${product.price.toFixed(2)}</p>
+                <p>Colors: {product.colors.join(", ")}</p>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,26 @@
 .product-card {
     border: 1px solid #ccc;
     padding: 16px;
-    width: 200px;
+
+    /* Create a grid layout */
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+/* Style the image container */
+.product-card-image {
+    grid-column: 1;
+}
+
+/* Style the content container */
+.product-card-content {
+    grid-column: 2;
+}
+
+/* Ensure the image fills its container */
+.product-card-image img {
+    width: 100%;
+    height: auto;
 }
