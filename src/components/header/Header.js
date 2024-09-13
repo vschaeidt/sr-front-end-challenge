@@ -1,5 +1,6 @@
 import './Header.css';
 import Img from '../../atoms/Image';
+import Button from '../../atoms/Button';
 
 const Header = () => {
     return (
@@ -14,7 +15,7 @@ const Header = () => {
             </div>
             <div className="search-bar">
                 <input type="text" placeholder="Search products..." className="search-input" />
-                <button className="search-button">Search</button>
+                <Button className="search-button">Search</Button>
             </div>
             <div className="icons">
                 <span className="icon">

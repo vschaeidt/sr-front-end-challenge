@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import Button from '../../atoms/Button';
 
 const Footer = () => {
     return (
@@ -11,7 +12,7 @@ const Footer = () => {
                 </div>
                 <form className="footer-form">
                     <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" />
-                    <button type="submit">Subscribe</button>
+                    <Button type="submit" className="footer-button">Subscribe</Button>
                 </form>
             </div>
         </footer>

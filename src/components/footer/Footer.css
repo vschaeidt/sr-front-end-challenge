@@ -28,16 +28,13 @@
     border: 1px solid #ccc;
 }
 
-.footer-form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
 
 .footer-form button:hover {
     background-color: #0056b3;
+}
+
+.button.footer-button {
+    margin-left: 10px;
 }
 
 @media (min-width: 768px) {
