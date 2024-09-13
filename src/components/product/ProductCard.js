@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Img from "../../atoms/Image";
 import "./ProductCard.css";
 
-function ProductCard({ product }) {
+function ProductCard({ product, addToCart }) {
     return (
         <div className="product-card">
             <div className="product-card-image">
@@ -13,6 +13,7 @@ function ProductCard({ product }) {
                 <h2>{product.name}</h2>
                 <p>${product.price.toFixed(2)}</p>
                 <p>Colors: {product.colors.join(", ")}</p>
+                <button onClick={() => addToCart(product)}>Add to cart</button>
             </div>
         </div>
     );
@@ -25,6 +26,7 @@ ProductCard.propTypes = {
         price: PropTypes.number.isRequired,
         colors: PropTypes.arrayOf(PropTypes.string).isRequired,
     }).isRequired,
+    addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

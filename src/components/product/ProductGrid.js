@@ -4,15 +4,20 @@ import PropTypes from 'prop-types';
 import "./ProductGrid.css"
 import ProductCard from './ProductCard';
 
-const ProductGrid = ({ products }) => (
-  <div className="product-grid" >
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../features/cart/cartSlice'
+
+const ProductGrid = ({ products }) => {
+  const dispatch = useDispatch();
+  return (<div className="product-grid" >
     {
       products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} addToCart={product => dispatch(addToCart(product))} />
       ))
     }
   </div>
-);
+  );
+}
 
 ProductGrid.propTypes = {
   products: PropTypes.arrayOf(

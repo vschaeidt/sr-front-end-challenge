@@ -8,18 +8,17 @@ export const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            // Add item logic
+            console.log(action);
+            state.items = [...state.items, action.payload];
+            state.total += 1;
         },
         removeFromCart: (state, action) => {
-            // Remove item logic
+            state.items = state.items.findIndex(item => item.id === action.payload.id);
+            state.total -= 1;
         },
-        updateQuantity: (state, action) => {
-            // Update quantity logic
-        },
-        // Other cart-related reducers
     },
 });
 
-export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
