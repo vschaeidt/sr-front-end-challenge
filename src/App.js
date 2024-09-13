@@ -11,7 +11,7 @@ import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import MobileMenu from "./components/menu/MobileMenu";
 import Select from "./components/select/Select";
-import ProductCard from "./components/product/ProductCard";
+import ProductGrid from "./components/product/ProductGrid";
 
 function App() {
   const sortedProducts = useSelector((state) => state.products.filteredProducts);
@@ -52,11 +52,7 @@ function App() {
             <Select options={sortOptions} onChange={event => dispatch(sortBy(event.target.value))} />
           </label>
         </div>
-        <div className="product-grid">
-          {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <ProductGrid products={sortedProducts} />
         <Footer />
       </div>
     </div>
